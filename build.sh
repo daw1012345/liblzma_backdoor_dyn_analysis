@@ -1,1 +1,2 @@
-gcc main.c backdoor.o -Wl,-z,now -fno-omit-frame-pointer -g -fPIC -DPIC -fno-lto -ffunction-sections -fdata-sections -o backdoored_file
+gcc shared_lib.c backdoor.o -Wl,--sort-section=name,-X,-z,now -fPIC -fno-lto -ffunction-sections -fdata-sections -g -r -o libbackdoor.o
+gcc -Wl,--sort-section=name,-X,-z,now -g libbackdoor.o main.c -o backdoored_file
