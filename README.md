@@ -3,6 +3,7 @@
 ## Description
 
 The purpose of this repo is to simplify the dynamic analysis of the liblzma backdoor. It imitates the environment that the backdoor is expecting during compilation and linking.
+The backdoor successfully executes (GOT entry for _cpuid gets overwritten and stage 1 runs). However, ssh-specific stubs are missing, meaning that the backdoor will fail to hook SSH functions.
 
 ## Instructions
 1. Download the backdoor file and extract it. It can be found [here](https://www.openwall.com/lists/oss-security/2024/03/29/4/2) (`$ wget https://www.openwall.com/lists/oss-security/2024/03/29/4/2 -O backdoor.gz && gzip -d backdoor.o.gz`)
