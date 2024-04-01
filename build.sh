@@ -1,2 +1,2 @@
 gcc shared_lib.c backdoor.o -Wl,--sort-section=name,-X,-z,now -fPIC -fno-lto -ffunction-sections -fdata-sections -g -r -o libbackdoor.o
-gcc -Wl,--sort-section=name,-X,-z,now -g libbackdoor.o main.c -o backdoored_file
+gcc -Wl,--sort-section=name,-X,-z,now -g -fPIE libbackdoor.o main.c -o backdoored_file
